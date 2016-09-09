@@ -1,0 +1,14 @@
+﻿{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "jsx": "react"
+  },
+  "filesGlob": [
+    "app/**/*.tsx",
+    "app/**/*.ts",
+    "typings/**/*d.ts"
+  ]
+}
