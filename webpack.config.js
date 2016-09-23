@@ -14,6 +14,8 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.tsx?$/, loader: 'ts-loader?jsx=true', exclude: /(\.test.ts$|node_modules)/ },
+            { test: /\.css$/, loaders: ['style', 'css', 'sass'] },
+            {test: /\.(woff2?|ttf|eot|svg)$/, loader: 'url?limit=10000' },
         ],
     },
 
