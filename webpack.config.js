@@ -10,10 +10,19 @@ module.exports = {
     output: {
         filename: "bundle/[name].js"
     },
-    
+
     module: {
         loaders: [
             { test: /\.tsx?$/, loader: 'ts-loader?jsx=true', exclude: /(\.test.ts$|node_modules)/ },
         ],
     },
+
+    plugins: [
+        new webpack.ProvidePlugin({
+           $: "jquery",
+           jQuery: "jquery"
+       }),
+    ],
+    
+    devtool: 'source-map'    
 }

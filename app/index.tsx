@@ -2,6 +2,24 @@ import * as _ from "lodash";
 import * as Redux from "redux";
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
+import * as $ from 'jquery';
+import * as bootstrap from "bootstrap";
+
+$(document).ready(function(){
+    debugger;
+    $('.dropdown').on('show.bs.dropdown', function(){
+        alert('The dropdown is about to be shown.');
+    });
+    $('.dropdown').on('shown.bs.dropdown', function(){
+        alert('The dropdown is now fully shown.');
+    });
+    $('.dropdown').on('hide.bs.dropdown', function(e){
+        alert('The dropdown is about to be hidden.');
+    });
+    $('.dropdown').on('hidden.bs.dropdown', function(){
+        alert('The dropdown is now fully hidden.');
+    });
+});
 
 interface Action {
     type?: string,
@@ -144,6 +162,17 @@ class TodoApp extends React.Component<{ todos: ToDoState[], filter: string }, {}
                     {' '}
                     <FilterLink filter='SHOW_COMPLETED' text='Completed' />
                 </p>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Toggle this Dropdown
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+                    </ul>
+                </div>
             </div>
         );
     }
